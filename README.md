@@ -21,7 +21,7 @@ cp example/init.sh init.sh
 bowtie2-build --threads 10 $GENOME index/$NAME.origin
 
 ## Mapping NGS reads 
-nohup bash -c "bowtie2 -p 20 -x index/$NAME.origin -1 $READ1 -2 $READ2 | samtools view -Shub | samtools sort - -o bam/$NAME.round1.bam" &
+nohup bash -c "bowtie2 -p 20 -x index/$NAME.origin -1 $READ1 -2 $READ2 | samtools view -Shub -F 4 | samtools sort - -o bam/$NAME.round1.bam" &
 samtools index bam/$NAME.round1.bam
 
 ## Run Pilon
@@ -34,7 +34,7 @@ java -jar ~/pilon/pilon-1.22.jar --genome $GENOME --frags bam/$NAME.round1.bam -
 bowtie2-build --threads 10 asm/$NAME.round1.fasta index/$NAME.round1
 
 ## Mapping NGS reads 
-nohup bash -c "bowtie2 -p 20 -x index/$NAME.round1 -1 $READ1 -2 $READ2 | samtools view -Shub | samtools sort - -o bam/$NAME.round2.bam" &
+nohup bash -c "bowtie2 -p 20 -x index/$NAME.round1 -1 $READ1 -2 $READ2 | samtools view -Shub -F 4 | samtools sort - -o bam/$NAME.round2.bam" &
 samtools index bam/$NAME.round2.bam
 
 ## Run Pilon
@@ -47,7 +47,7 @@ java -jar ~/pilon/pilon-1.22.jar --genome asm/$NAME.round1.fasta --frags bam/$NA
 bowtie2-build --threads 10 asm/$NAME.round2.fasta index/$NAME.round2
 
 ## Mapping NGS reads 
-nohup bash -c "bowtie2 -p 20 -x index/$NAME.round2 -1 $READ1 -2 $READ2 | samtools view -Shub | samtools sort - -o bam/$NAME.round3.bam" &
+nohup bash -c "bowtie2 -p 20 -x index/$NAME.round2 -1 $READ1 -2 $READ2 | samtools view -Shub -F 4 | samtools sort - -o bam/$NAME.round3.bam" &
 samtools index bam/$NAME.round3.bam
 
 ## Run Pilon
