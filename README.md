@@ -12,7 +12,6 @@ java -jar pilon-1.22.jar --help
 ```
 cp example/init.sh init.sh
 # edit and run init.sh file according to your project
-. init.sh
 ```
 
 #### Run the workflow

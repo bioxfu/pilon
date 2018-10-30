@@ -1,3 +1,4 @@
+. init.sh
 mkdir index
 mkdir bam
 mkdir asm
