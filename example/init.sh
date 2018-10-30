@@ -10,9 +10,3 @@ READ1=$NGS_DIR/GTR-1_L2_391391.R1.clean.fastq.gz,$NGS_DIR/GTR-1_L4_390390.R1.cle
 
 READ2=$NGS_DIR/GTR-1_L2_391391.R2.clean.fastq.gz,$NGS_DIR/GTR-1_L4_390390.R2.clean.fastq.gz
 
-mkdir index
-
-mkdir bam
-
-mkdir asm
-
